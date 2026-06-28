@@ -1,0 +1,203 @@
+/* ===========================
+   Weather Card
+=========================== */
+
+.weather-card {
+  width: 90%;
+  max-width: 900px;
+
+  margin: 40px auto;
+
+  padding: 35px;
+
+  border-radius: 28px;
+
+  background: rgba(255,255,255,0.15);
+
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  box-shadow: 0 15px 40px rgba(0,0,0,.25);
+
+  color: white;
+}
+
+/* ===========================
+   Hero Top
+=========================== */
+
+.hero-top{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+
+  margin-bottom:30px;
+}
+
+.city-name{
+  font-size:32px;
+  font-weight:700;
+  margin:0;
+  color:white;
+}
+
+.current-time,
+.current-date{
+  color:rgba(255,255,255,.8);
+  margin:0;
+  font-size:16px;
+}
+
+/* ===========================
+   Hero Middle
+=========================== */
+
+.hero-middle{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  gap:30px;
+
+  margin-bottom:35px;
+}
+
+.temp-section{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.temperature{
+  font-size:80px;
+  font-weight:800;
+  margin:0;
+  color:white;
+}
+
+.feels-like{
+  font-size:22px;
+  margin:0;
+
+  color:rgba(255,255,255,.9);
+}
+
+.weather-status{
+  font-size:24px;
+
+  margin-top:10px;
+
+  color:white;
+
+  text-transform:capitalize;
+}
+
+.weather-image{
+  width:170px;
+  height:170px;
+
+  object-fit:contain;
+}
+
+/* ===========================
+   Info Cards
+=========================== */
+
+.info-container{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:20px;
+}
+
+.info-card{
+
+  background:rgba(255,255,255,.15);
+
+  backdrop-filter:blur(12px);
+
+  border:1px solid rgba(255,255,255,.2);
+
+  border-radius:20px;
+
+  padding:20px;
+
+  transition:.3s;
+}
+
+.info-card:hover{
+
+  transform:translateY(-6px);
+
+  background:rgba(255,255,255,.2);
+}
+
+.info-card h4{
+
+  margin-bottom:15px;
+
+  font-size:22px;
+
+  color:white;
+}
+
+.info-card p{
+
+  font-size:26px;
+
+  font-weight:700;
+
+  color:white;
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media(max-width:768px){
+
+.weather-card{
+
+width:95%;
+
+padding:20px;
+
+}
+
+.hero-middle{
+
+flex-direction:column-reverse;
+
+text-align:center;
+
+}
+
+.temperature{
+
+font-size:65px;
+
+}
+
+.weather-image{
+
+width:130px;
+
+height:130px;
+
+}
+
+.info-container{
+
+grid-template-columns:1fr;
+
+}
+
+.city-name{
+
+font-size:28px;
+
+}
+
+}
