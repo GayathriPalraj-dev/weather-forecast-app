@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./App.css";
-import SearchBar from "./components/SearchBar";
-import WeatherCard from "./components/WeatherCard";
-import ForecastCard from "./components/ForecastCard";
+import SearchBar from "./features/weather/components/SearchBar";
+import WeatherCard from "./features/weather/components/WeatherCard";
+import ForecastCard from "./features/weather/components/ForecastCard";
 
 function App() {
   const [weather, setWeather] = useState(null);
