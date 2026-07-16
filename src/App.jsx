@@ -1,3 +1,8 @@
+import {
+  getWeather,
+  getForecast,
+  getLocationWeather,
+} from "./features/weather/services/WeatherService";
 import { getWeather } from "./features/weather/services/WeatherService";
 import { useState } from "react";
 import "./App.css";
