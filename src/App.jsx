@@ -3,7 +3,7 @@ import {
   getForecast,
   getLocationWeather,
 } from "./features/weather/services/WeatherService";
-import { getWeather } from "./features/weather/services/WeatherService";
+
 import { useState } from "react";
 import "./App.css";
 import SearchBar from "./features/weather/components/SearchBar";
