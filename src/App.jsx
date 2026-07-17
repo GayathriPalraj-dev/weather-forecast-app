@@ -1,8 +1,14 @@
+import {
+  getWeather,
+  getForecast,
+  getLocationWeather,
+} from "./features/weather/services/WeatherService";
+import { getWeather } from "./features/weather/services/WeatherService";
 import { useState } from "react";
 import "./App.css";
-import SearchBar from "./components/SearchBar";
-import WeatherCard from "./components/WeatherCard";
-import ForecastCard from "./components/ForecastCard";
+import SearchBar from "./features/weather/components/SearchBar";
+import WeatherCard from "./features/weather/components/WeatherCard";
+import ForecastCard from "./features/weather/components/ForecastCard";
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -14,39 +20,31 @@ function App() {
  const API_KEY = "c81bf88fd456147d760c3adcaeab325b";
 
   const fetchWeather = async (city) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+  setLoading(true);
 
-    setLoading(true);
+  try {
+    const data = await getWeather(city, API_KEY);
 
-    try {
-      const response = await fetch(url);
-      
-      const data = await response.json();
-      console.log("Forecast API:", data);
+    console.log("Weather API:", data);
 
-      if (data.cod !== 200) {
-        setError(data.message);
-        setWeather(null);
-        return;
-      }
-
-      setError("");
-      setWeather(data);
+    if (data.cod !== 200) {
+      setError(data.message);
+      setWeather(null);
       setLoading(false);
-
-      console.log(data);
-    } catch (error) {
-      setError("Something went wrong");
-      setLoading(false);
-      console.log(error);
+      return;
     }
-  };
 
-  const handleSearch = (city) => {
-  fetchWeather(city);
-  fetchWeatherForecast(city);
+    setError("");
+    setWeather(data);
+    setLoading(false);
+
+    console.log(data);
+  } catch (error) {
+    setError("Something went wrong");
+    setLoading(false);
+    console.log(error);
+  }
 };
-
   const fetchLocationWeather = () => {
   navigator.geolocation.getCurrentPosition(
     async (position) => {
